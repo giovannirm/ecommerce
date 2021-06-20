@@ -11,15 +11,15 @@ class Brand extends Model
 
     protected $fillable = ['name'];
 
-    // n:m
-    public function categories()
-    {
-        return $this->belongsToMany(Category::class);
-    }
-
     // 1:n
     public function products()
     {
         return $this->hasMany(Product::class);
     }
+    
+    // n:m
+    public function categories()
+    {
+        return $this->belongsToMany(Category::class);
+    }    
 }
