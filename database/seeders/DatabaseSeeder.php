@@ -16,9 +16,11 @@ class DatabaseSeeder extends Seeder
     {
         Storage::deleteDirectory('categories');
         Storage::deleteDirectory('subcategories');
+        Storage::deleteDirectory('products');
 
-        Storage::makeDirectory('categories');        
+        Storage::makeDirectory('categories');       
         Storage::makeDirectory('subcategories');
+        Storage::makeDirectory('products');
 
         $this->call(UserSeeder::class);
         $this->call(CategorySeeder::class);
@@ -26,5 +28,6 @@ class DatabaseSeeder extends Seeder
         $this->call(ProductSeeder::class);
         $this->call(ColorSeeder::class);
         $this->call(ColorProductSeeder::class);
+        $this->call(SizeSeeder::class);
     }
 }
