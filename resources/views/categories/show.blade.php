@@ -1,7 +1,7 @@
 <x-app-layout>
     <div class="container py-8">
         <figure class="mb-4">
-            <img class="w-full h-80 object-cover object-center"
+            <img class="w-full h-80 object-cover object-center rounded-lg"
                 src="{{ Storage::url($category->image) }}" alt="">
         </figure>
 
