@@ -59,7 +59,7 @@
 
                     <x-slot name="content">
                         <x-jet-dropdown-link href="{{ route('login') }}">
-                            {{ __('Login') }}
+                            {{ __('Log In') }}
                         </x-jet-dropdown-link>
 
                         <x-jet-dropdown-link href="{{ route('register') }}">
@@ -125,7 +125,7 @@
                     </li>
                 @endforeach
             </ul>
-            <p class="text-trueGray-500 px-4 my-2">{{ __('Mobile Login Menu') }}</p>
+            <p class="text-trueGray-500 px-4 my-2">{{ __('Mobile Log In Menu') }}</p>
 
             @livewire('cart-movil')
 
@@ -156,7 +156,7 @@
                     <span class="flex justify-center w-9">
                         <i class="fas fa-user-circle"></i>
                     </span>
-                    {{ __('Login') }}
+                    {{ __('Log In') }}
                 </a>
 
                 <a href="{{ route('register') }}" class="py-2 px-4 text-sm flex items-center text-trueGray-500 hover:bg-orange-500 hover:text-white">

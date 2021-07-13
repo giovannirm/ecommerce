@@ -35,7 +35,7 @@ class Product extends Model
     // n:m
     public function colors()
     {
-        return $this->belongsToMany(Color::class);
+        return $this->belongsToMany(Color::class)->withPivot('quantity');
     }    
 
     // 1:n polimórfica
