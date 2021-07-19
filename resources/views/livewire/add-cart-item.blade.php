@@ -1,5 +1,5 @@
 <div x-data>
-
+    
     <p class="text-gray-700 mb-4">
         <span class="font-semibold text-lg">
             {{ __('Stock') . ': '}}
@@ -17,7 +17,7 @@
                 wire:click="decrement">
                 -
             </x-jet-secondary-button>
-            @if ($quantity == 0)  
+            @if (!$quantity)  
                 -
             @else
                 <span class="mx-2 text-gray-700">{{ $qty }}</span>

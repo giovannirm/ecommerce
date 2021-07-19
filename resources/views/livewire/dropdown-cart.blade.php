@@ -15,10 +15,10 @@
 
         <x-slot name="content">
 
-            <ul>
+            <ul class="max-h-96 overflow-y-auto">
                 @forelse (Cart::content() as $item)
                     <li class="flex p-2 border-b border-gray-200">
-                        <img class="h-15 w-20 object-cover mr-4" src="{{ $item->options->image }}" alt="">
+                        <img class="h-15 w-20 object-cover mr-4 rounded-lg" src="{{ $item->options->image }}" alt="">
 
                         <article class="flex-1">    
                             <h1 class="font-bold">{{ $item->name }}</h1>
@@ -56,7 +56,7 @@
                         {{ __('Coin') . Cart::subtotal()}}
                     </p>
 
-                    <x-button-link color="orange" class="w-full">
+                    <x-button-link href="{{ route('shopping-cart') }}" color="orange" class="w-full">
                         {{ __('Go Shopping Cart') }}
                     </x-button-link>
                 </div>                

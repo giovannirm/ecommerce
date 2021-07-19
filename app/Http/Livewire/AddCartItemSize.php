@@ -2,8 +2,10 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\ColorSize;
 use App\Models\Size;
 use Gloudemans\Shoppingcart\Facades\Cart;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Facades\Storage;
 use Livewire\Component;
 
@@ -15,6 +17,7 @@ class AddCartItemSize extends Component
 
     public $qty = 1;
     public $quantity = 0;
+    /* public $quantity_size = 0; */
 
     public $size_id = "";
 
@@ -29,6 +32,10 @@ class AddCartItemSize extends Component
 
         $this->options['size'] = $size->name;
         $this->options['size_id'] = $size->id;
+
+        /* $this->quantity_size = ColorSize::whereHas('size.product', function (Builder $query){
+                            $query->where('id', $this->product->id)->where('size_id', $this->size_id);
+                            })->sum('quantity'); */
 
         $this->reset('quantity', 'color_id');
     }

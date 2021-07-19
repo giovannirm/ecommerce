@@ -16,37 +16,50 @@ class CategoryFilter extends Component
 
     public $view = 'grid';
 
+    /* protected $queryString = [
+        'filter_subcategory',
+        'filter_brand',
+    ]; */
+
+    public function updatedFilterSubcategory()
+    {
+        $this->resetPage();
+    }
+
+    public function updatedFilterBrand()
+    {
+        $this->resetPage();
+    }
+
     public function clean()
     {
         $this->reset(['filter_subcategory', 'filter_brand']);
     }
-    
+
     public function render()
     {
         /* $products = $this->category->products()
                             ->where('status', 2)
                             ->paginate(20); */
 
-        $productsQuery = Product::query()->whereHas('subcategory.category', function(Builder $query){
+        $productsQuery = Product::query()->whereHas('subcategory.category', function (Builder $query) {
             $query->where('id', $this->category->id);
         });
 
-        if($this->filter_subcategory)
-        {
-            $productsQuery = $productsQuery->whereHas('subcategory', function(Builder $query){
+        if ($this->filter_subcategory) {
+            $productsQuery = $productsQuery->whereHas('subcategory', function (Builder $query) {
                 $query->where('name', $this->filter_subcategory);
             });
         }
 
-        if($this->filter_brand)
-        {
-            $productsQuery = $productsQuery->whereHas('brand', function(Builder $query){
+        if ($this->filter_brand) {
+            $productsQuery = $productsQuery->whereHas('brand', function (Builder $query) {
                 $query->where('name', $this->filter_brand);
             });
         }
 
         $products = $productsQuery->paginate(20);
-
+        
         return view('livewire.category-filter', compact('products'));
     }
 }

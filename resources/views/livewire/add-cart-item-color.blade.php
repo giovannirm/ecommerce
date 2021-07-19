@@ -6,7 +6,20 @@
             <option class="capitalize" value="{{ $color->id }}">{{ $color->name }}</option>
         @endforeach
     </select>
-    <div class="flex mt-4">
+
+    <p class="text-gray-700 my-4">
+        <span class="font-semibold text-lg">
+            {{ __('Stock') . ': '}}
+        </span>
+        {{ $quantity }}       
+        {{-- @if ($quantity)
+            {{ $quantity }}
+        @else
+            {{ $product->stock }}
+        @endif --}}        
+    </p>
+
+    <div class="flex">
         <div class="mr-4">
             <x-jet-secondary-button 
                 disabled
@@ -16,7 +29,7 @@
                 wire:click="decrement">
                 -
             </x-jet-secondary-button>
-            @if ($quantity == 0)  
+            @if (!$quantity)  
                 -
             @else
                 <span class="mx-2 text-gray-700">{{ $qty }}</span>
