@@ -1,8 +1,9 @@
 <div>
     <div class="bg-white rounded-lg shadow-lg mb-6">
         <div class="px-6 py-2 flex justify-between items-center">
-            <h1 class="font-semibold text-gray-700 uppercase">{{ $category->name }}</h1>
-            <div class="grid grid-cols-2 border-2 border-gray-200 divide-x divide-gray-200">
+            <h1 class="mr-4 font-semibold text-gray-700 uppercase">{{ $category->name }}</h1>    
+            {{-- <div class="grid grid-cols-2 bg-red-600 w-48 text-center border-2 border-gray-200 divide-x divide-gray-200"> --}}
+            <div class="flex justify-between border-2 border-gray-200 divide-x divide-gray-200">
                 <i class="fas fa-border-all p-3 text-gray-500 cursor-pointer {{ $view == 'grid' ? 'text-orange-500' : '' }}" wire:click="$set('view', 'grid')"></i>
                 <i class="fas fa-th-list p-3 text-gray-500 cursor-pointer {{ $view == 'list' ? 'text-orange-500' : '' }}" wire:click="$set('view', 'list')"></i>
             </div>
@@ -16,8 +17,8 @@
                 @foreach ($category->subcategories as $subcategory)
                     <li class="py-2 text-sm">
                         <a 
-                            class="cursor-pointer hover:text-orange-500 capitalize {{ $filter_subcategory == $subcategory->name ? 'text-orange-500 font-bold' : '' }}"
-                            wire:click="$set('filter_subcategory', '{{ $subcategory->name }}')">
+                            class="cursor-pointer hover:text-orange-500 capitalize {{ $filter_subcategory == $subcategory->slug ? 'text-orange-500 font-bold' : '' }}"
+                            wire:click="$set('filter_subcategory', '{{ $subcategory->slug }}')">
                             {{ $subcategory->name }}
                         </a>
                     </li>

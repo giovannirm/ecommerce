@@ -16,10 +16,10 @@ class CategoryFilter extends Component
 
     public $view = 'grid';
 
-    /* protected $queryString = [
+    protected $queryString = [
         'filter_subcategory',
         'filter_brand',
-    ]; */
+    ]; 
 
     public function updatedFilterSubcategory()
     {
@@ -48,7 +48,7 @@ class CategoryFilter extends Component
 
         if ($this->filter_subcategory) {
             $productsQuery = $productsQuery->whereHas('subcategory', function (Builder $query) {
-                $query->where('name', $this->filter_subcategory);
+                $query->where('slug', $this->filter_subcategory);
             });
         }
 

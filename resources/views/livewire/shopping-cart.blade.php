@@ -39,7 +39,7 @@
                                 </div>
                             </td>
                             <td>
-                                <span>{{ __('Coin') . $item->price }}</span>
+                                <span>{{ __('Coin') . ' ' . number_format($item->price, 2) }}</span>
                                 <a 
                                     class="ml-6 cursor-pointer hover:text-red-600" 
                                     wire:click="delete('{{ $item->rowId }}')"
@@ -58,7 +58,7 @@
                                 @endif                           
                             </td>
                             <td>
-                                {{ __('Coin') . $item->price * $item->qty }}
+                                {{ __('Coin') . ' ' . number_format($item->price * $item->qty, 2) }}
                             </td>
                         </tr>
                     @endforeach
@@ -91,7 +91,7 @@
                 <div>
                     <p class="text-gray-700">
                         <span class="font-bold text-lg">{{ __('Total') . ':' }}</span>
-                        {{ __('Coin') . Cart::subtotal() }}
+                        {{ __('Coin') . ' ' . Cart::subtotal() }}
                     </p>
                 </div>
                 <div>

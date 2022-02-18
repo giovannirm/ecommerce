@@ -36,7 +36,7 @@
                                 @endisset
                             </div>                            
 
-                            <p>{{ __('Coin') . ': ' . $item->price}}</p>
+                            <p>{{ __('Coin') . ' ' . number_format($item->price, 2) }}</p>
                         </article>
                     </li>
                 @empty
@@ -53,7 +53,7 @@
                 <div class="py-2 px-3">
                     <p class="text-lg text-gray-700 mt-2 mb-3">
                         <span class="font-bold">{{ __('Total') . ': '}}</span>
-                        {{ __('Coin') . Cart::subtotal()}}
+                        {{ __('Coin') . ' ' . Cart::subtotal()}}
                     </p>
 
                     <x-button-link href="{{ route('shopping-cart') }}" color="orange" class="w-full">

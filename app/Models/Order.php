@@ -28,10 +28,10 @@ class Order extends Model
     const ANULADO = 5;
 
     // Cuando el usuario ha indicado que va a recoger en tienda
-    const TIENDA = 8;
+    const TIENDA = 1;
 
     // Cuando el usuario ha indicado que quiere delivery
-    const DELIVERY = 9;
+    const DELIVERY = 2;
 
     // n:1
     public function department()

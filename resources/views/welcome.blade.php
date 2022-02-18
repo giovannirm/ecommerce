@@ -1,24 +1,26 @@
 <x-app-layout>
     <div class="container py-8">
         @foreach ($categories as $category)
-            
-            <section class="mb-6">
 
-                <div class="flex items-center mb-2">
-                    <h1 class="text-lg uppercase font-semibold text-gray-700">
-                        {{ $category->name }}
-                    </h1>
+            @if (count($category->products))
+                <section class="mb-6">
 
-                    <a 
-                        class="ml-2 text-orange-500 font-semibold hover:text-orange-400 hover:underline" 
-                        href="{{ route('categories.show', $category) }}">
-                        {{ __('See More') }}
-                    </a>
-                </div>
-                @livewire('category-products', ['category' => $category])
-            </section>
+                    <div class="flex items-center mb-2">
+                        <h1 class="text-lg uppercase font-semibold text-gray-700 w-60 sm:w-auto">
+                            {{ Str::limit($category->name, 45) }}
+                        </h1>
 
-        @endforeach        
+                        <a 
+                            class="ml-4 text-orange-500 font-semibold hover:text-orange-400 hover:underline" 
+                            href="{{ route('categories.show', $category) }}">
+                            {{ __('See More') }}
+                        </a>
+                    </div>
+                    @livewire('category-products', ['category' => $category])
+                </section>
+            @endif            
+
+        @endforeach
     </div>
 
     @push('script')
